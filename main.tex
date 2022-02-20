@@ -2,13 +2,10 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
 \usepackage{cite}
 \usepackage{enumerate}
-\usepackage{hyperref}
 
-\newtheorem*{exercise}{Exercise}
-\newtheorem*{solution}{Solution}
+\renewcommand\thesection{\Alph{section}}
 
 \bibliographystyle{plain}
 
@@ -16,7 +13,7 @@
 
 \tableofcontents
 
-\input{chp/01/description.tex}
+\input{chp/01/exercises.tex}
 
 \nocite{*}
 \bibliography{bib/main}
