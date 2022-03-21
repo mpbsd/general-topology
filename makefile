@@ -8,12 +8,23 @@ else
 	DOC_VIEWER = zathura
 endif
 
-build:
+draft:
 	$(TEX_ENGINE) main
 	$(BIB_ENGINE) main
 	$(TEX_ENGINE) main
 	$(TEX_ENGINE) main
 	$(DOC_VIEWER) main.pdf
 
+.PHONY: draft letter clean
+
+letter:
+	$(TEX_ENGINE) letter
+	$(DOC_VIEWER) letter.pdf
+
 clean:
-	rm main.aux main.bbl main.blg main.log main.out main.pdf main.toc
+	find . -type f -name "*.aux" | xargs rm -rf
+	find . -type f -name "*.bbl" | xargs rm -rf
+	find . -type f -name "*.blg" | xargs rm -rf
+	find . -type f -name "*.log" | xargs rm -rf
+	find . -type f -name "*.pdf" | xargs rm -rf
+	find . -type f -name "*.toc" | xargs rm -rf
