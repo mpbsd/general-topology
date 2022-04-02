@@ -9,17 +9,17 @@ else
 endif
 
 draft:
+	$(TEX_ENGINE) draft
+	$(DOC_VIEWER) draft.pdf
+
+.PHONY: draft final clean
+
+final:
 	$(TEX_ENGINE) main
 	$(BIB_ENGINE) main
 	$(TEX_ENGINE) main
 	$(TEX_ENGINE) main
 	$(DOC_VIEWER) main.pdf
-
-.PHONY: draft letter clean
-
-letter:
-	$(TEX_ENGINE) letter
-	$(DOC_VIEWER) letter.pdf
 
 clean:
 	find . -type f -name "*.aux" | xargs rm -rf
